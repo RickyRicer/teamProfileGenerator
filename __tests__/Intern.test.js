@@ -7,7 +7,7 @@ test("Should instantiate Intern instance", () => {
   });
 
   test("Should set school via constructor arguments", () => {
-    const school = 'Notre Dame';
+    const school = 'University of Denver';
     const i = new Intern('Rick', '204', 'rick.ansay@gmail.com', 'University of Denver');
     expect(i.school).toBe(school);
   });
@@ -15,6 +15,6 @@ test("Should instantiate Intern instance", () => {
 
   test("Should return Intern for getRole()", () => {
     const expectedRole = 'Intern';
-    const m = new Manager('Rick', '204', 'rick.ansay@gmail.com', 'University of Denver');
-    expect(m.getRole()).toBe(expectedRole);
+    const i = new Intern('Rick', '204', 'rick.ansay@gmail.com', 'University of Denver');
+    expect(i.getRole()).toBe(expectedRole);
   });
