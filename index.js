@@ -23,6 +23,11 @@ const managerInput = [{
         type: 'input',
         message: 'Enter Manager Email Address:',
         name: 'rick.ansay@gmail.com',
-    }
+    },
+    {
+        type: 'input',
+        message: 'Enter Office Number',
+        name:'35'
+    },
 
 ]
