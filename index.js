@@ -22,7 +22,7 @@ const managerInput = [{
     {
         type: 'input',
         message: 'Enter Manager Email Address:',
-        name: 'rick.ansay@gmail.com',
+        name: 'manager@company.com',
     },
     {
         type: 'input',
