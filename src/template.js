@@ -17,7 +17,7 @@ const generateManager = manager => {
 };
 
 const generateIntern = intern => {
-    return `/*Generate intern card */
+    return `
     <div class="card employee-card">
     <div class="card-header">
         <h2 class="card-title">${intern.getName()}</h2>
