@@ -81,7 +81,7 @@ const engineerInput = [{
 
 const employeeInput = [{
     type: 'list',
-    message: 'What is the name of the employee?',
+    message: 'What type of employee are you adding?',
     name: 'employeeChoice',
     choices: [
         'Intern',
