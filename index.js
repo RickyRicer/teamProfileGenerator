@@ -1,6 +1,7 @@
 // Required classes for employees
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
+const Employee = require('./lib/Employee')
 const Intern = require('./lib/Intern');
 const generateHTML = require('./src/template.js');
 
@@ -80,13 +81,38 @@ const engineerInput = [{
 ];
 
 const employeeInput = [{
+    type: 'input',
+    message: 'What is the name of the Employee?',
+    name: 'name',
+},
+{
+    type: 'input',
+    message: 'Enter Employee ID Number:',
+    name: 'id',
+},
+{
+    type: 'input',
+    message: 'Enter Employee Email Address:',
+    name: 'email',
+},
+{
+    type: 'input',
+    message: 'Enter Employee Github ID:',
+    name: 'githubId',
+    },
+
+];
+
+const employeeAdder = [{
     type: 'list',
     message: 'What type of employee are you adding?',
     name: 'employeeChoice',
     choices: [
         'Intern',
         'Engineer',
-        'Done with adding employees'
+        'Employee',
+        'Manager',
+        'Done with adding employees',
     ]
 }];
 
@@ -105,13 +131,19 @@ function createManager(){
 };
 
 function addEmployees() {
-    inquirer.prompt(employeeInput).then((res) => {
+    inquirer.prompt(employeeAdder).then((res) => {
         switch (res.employeeChoice){
             case 'Intern':
                 createIntern();
                 break;
             case 'Engineer':
                 createEngineer();
+                break;
+            case 'Employee':
+                createEmployee();
+                break;
+            case 'Manager':
+                createManager();
                 break;
             default:
                 generateTeam();
@@ -141,6 +173,19 @@ function createEngineer(){
             res.githubId,
         )
     employeeDirectory.push(engineer);
+    addEmployees();
+});
+};
+
+function createEmployee(){
+    inquirer.prompt(employeeInput).then((res) => {
+        let employee = new Employee(
+            res.name,
+            res.id,
+            res.email,
+            res.githubId,
+        )
+    employeeDirectory.push(employee);
     addEmployees();
 });
 };
